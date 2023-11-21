@@ -14,20 +14,17 @@ jobs:
 
     steps:
      - uses: docker/login-action@v1
-    with:
-      registry: harbor.example.com
-      username: ${{ secrets.HARBOR_USERNAME  }}
-      password: ${{ secrets.HARBOR_PASSWORD }}
-    - uses: actions/checkout@v3
-    - name: Run Prisma Cloud 
-      id: prisma-cloud
-      uses: bridgecrewio/checkov-action@master
-      env:
+       with:
+        registry: harbor.example.com
+        username: ${{ secrets.HARBOR_USERNAME  }}
+        password: ${{ secrets.HARBOR_PASSWORD }}
+     - uses: actions/checkout@v3
+     - name: Run Prisma Cloud 
+       id: prisma-cloud
+       uses: bridgecrewio/checkov-action@master
+       env:
         PRISMA_API_URL: https://api.eu.prismacloud.io
-      with:
+       with:
         api-key: ${{ secrets.BC_API_KEY }}    
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
-
-    
+     - name: Build the Docker image
+       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
