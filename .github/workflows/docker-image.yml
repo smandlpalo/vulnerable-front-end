@@ -30,4 +30,4 @@ jobs:
      - name: Build the Docker image
        run: |
          docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-         docker push stefan.pase.dev/demoaction/democon:${{ github.run_number }}
+         docker push stefan.pase.dev/demoaction/my-image-name
