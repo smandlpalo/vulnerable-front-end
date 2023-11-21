@@ -29,5 +29,5 @@ jobs:
         soft_fail: true
      - name: Build the Docker image
        run: |
-         docker build . --file Dockerfile --tag my-image-name:${{ github.run_number }}
+         docker build . --file Dockerfile --tag stefan.pase.dev/demoaction/my-image-name:${{ github.run_number }}
          docker push stefan.pase.dev/demoaction/my-image-name:${{ github.run_number }}
